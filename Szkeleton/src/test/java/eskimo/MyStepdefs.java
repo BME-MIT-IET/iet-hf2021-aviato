@@ -78,4 +78,19 @@ public class MyStepdefs {
     public void eskimoHasItem(int arg0) {
         Assert.assertEquals(arg0, e.getTargyak().size() - 1);
     }
+
+    @When("Eskimo eats food")
+    public void eskimoEatsFood() {
+        e.Hasznal(e.getTargy(0), m);
+    }
+
+    @Then("Eskimo health should be {int}")
+    public void eskimoHealthShouldBe(int arg0) {
+        Assert.assertEquals(arg0, e.getTestho());
+    }
+
+    @When("Eskimo health drops {int}")
+    public void eskimoHealthDrops(int arg0) {
+        e.TesthoHozzaad(-arg0);
+    }
 }
