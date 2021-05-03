@@ -10,16 +10,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.*;
-
 import main.MyApplication;
 
-import view.GrafNezet;
-import view.Nezheto;
-
-
-import view.*;
 
 /**
  * Felügyeli a játék menetét. Ő felelős a hóviharok generálásáért, továbbá ő hozza létre a
