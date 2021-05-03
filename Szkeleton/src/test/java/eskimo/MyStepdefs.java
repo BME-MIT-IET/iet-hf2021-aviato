@@ -10,6 +10,7 @@ import view.GrafNezet;
 public class MyStepdefs {
     Eszkimo e;
     Mezo m;
+    Targy aso = null;
     @Given("A fresh Eskimo")
     public void aFreshEskimo() {
         e = new Eszkimo("1");
@@ -17,7 +18,7 @@ public class MyStepdefs {
 
     @Given("A fresh Field")
     public void aFreshField() {
-        m = new Jegtabla("1", null) {
+        m = new Jegtabla("1", aso) {
             @Override
             public boolean Befogad(Szereplo belepo, Mezo regi) {
                 return true;
@@ -60,5 +61,21 @@ public class MyStepdefs {
     @Then("Eskimo movement should be {int}")
     public void eskimoMovementShouldBe(int arg0) {
         Assert.assertEquals(e.getLepesszam(), arg0);
+    }
+
+    @Given("A fresh Item")
+    public void aFreshItem() {
+        aso = new Aso();
+    }
+
+    @When("Eskimo picks up item")
+    public void eskimoPicksUpItem() {
+        e.setMezo(m);
+        e.Felvesz();
+    }
+
+    @Then("Eskimo has {int} item")
+    public void eskimoHasItem(int arg0) {
+        Assert.assertEquals(arg0, e.getTargyak().size() - 1);
     }
 }

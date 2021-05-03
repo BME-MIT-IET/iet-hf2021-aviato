@@ -21,3 +21,11 @@ Feature: Determine if String is Palindrome or not. A string is a palindrome if i
     Then Eskimo movement should be 0
     When Eskimo steps 1
     Then Eskimo movement should be 0
+
+  Scenario: Eskimo can pick up item
+    Given A fresh Item
+    Given A fresh Eskimo
+    Given A fresh Field
+    When Eskimo picks up item
+    Then Eskimo has 1 item
+
