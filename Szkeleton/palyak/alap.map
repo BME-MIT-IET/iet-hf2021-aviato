@@ -1,0 +1,53 @@
+ujmezo mezo1 SL00
+ujmezo mezo2 SB00
+ujmezo mezo3 ST00
+ujmezo mezo4 SK00
+ujmezo mezo5 IS20
+ujmezo mezo6 ST22
+ujmezo mezo7 SA22
+ujmezo mezo9 SA22
+ujmezo mezo10 SA22
+ujmezo mezo11 SA22
+ujmezo mezo12 SA22
+ujmezo mezo13 LA22
+ujmezo mezo14 SA22
+ujmezo mezo15 SA22
+ujmezo mezo16 SA22
+ujmezo mezo17 SA22
+
+osszekot mezo1 mezo2
+osszekot mezo1 mezo3
+osszekot mezo1 mezo4
+osszekot mezo1 mezo5
+osszekot mezo1 mezo6
+
+osszekot mezo2 mezo4
+osszekot mezo2 mezo3
+osszekot mezo5 mezo4
+osszekot mezo6 mezo4
+osszekot mezo7 mezo4
+osszekot mezo10 mezo4
+osszekot mezo10 mezo13
+osszekot mezo16 mezo17
+osszekot mezo17 mezo14
+osszekot mezo15 mezo14
+osszekot mezo15 mezo11
+osszekot mezo10 mezo19
+osszekot mezo11 mezo12
+
+randomvihar 1
+randommedve 1
+
+ujszereplo szereplo1 eszkimo
+ujszereplo szereplo2 kutato
+ujszereplo szereplo3 kutato
+ujszereplo szereplo4 eszkimo
+ujszereplo medve0 medve
+
+lehelyez medve0 mezo13
+lehelyez szereplo1 mezo1
+lehelyez szereplo2 mezo1
+lehelyez szereplo3 mezo1
+lehelyez szereplo4 mezo1
+
+***
