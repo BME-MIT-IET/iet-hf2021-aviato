@@ -1,21 +1,13 @@
 package main;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import java.io.OutputStreamWriter;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
-import objects.*;
+import objects.Palya;
 import view.GrafNezet;
+
+import java.io.*;
 
 /**
  * 
@@ -24,7 +16,7 @@ import view.GrafNezet;
  */
 public class MyApplication extends Application implements EventHandler<ActionEvent>{	
 	private static Stage window;
-	private static GrafNezet nezet = new GrafNezet();	
+	private static GrafNezet nezet = new GrafNezet();
 	static private BufferedWriter output;
 	
 	
