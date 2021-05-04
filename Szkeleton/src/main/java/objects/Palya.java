@@ -94,12 +94,12 @@ public final class Palya{
 		}
 	}
 
+	private static Random rand = new Random();
 	/**
 	 * Minden szereplő köre lejárta után meghívódik ez a metódus, ami
 	 * csak bizonyos valószínűséggel generál ténylegesen hóvihart.
 	 */
 	public static void Hovihar() {
-		Random rand = new Random();
 		if(randomHovihar) {
 			for(int i = 0; i<mezok.size();i++) {
 				if (rand.nextInt(5) == 1)
@@ -228,7 +228,6 @@ public final class Palya{
 					System.out.println("Epitsd fel a palyat, adj hozza szereploket! ");
 				boolean exit = false;
 				int alkcount = 0;
-				Random r = new Random();
 				boolean randomMedve = true;
 				
 				
@@ -266,7 +265,7 @@ public final class Palya{
 							break;
 							case 'I': 
 								if(params[2].substring(2,3).equals("R"))
-									mezo = new InstabilJegtabla(params[1],targy, r.nextInt(3)+1);
+									mezo = new InstabilJegtabla(params[1],targy, rand.nextInt(3)+1);
 								else 
 									mezo = new InstabilJegtabla(params[1],targy, Integer.parseInt(params[2].substring(2,3)));
 								break;
@@ -275,7 +274,7 @@ public final class Palya{
 							default: throw new Exception("Hibas szintaktika!");							
 							}							
 							if(params[2].substring(3,4).equals("R"))
-								mezo.setHovastagsag(r.nextInt(8));
+								mezo.setHovastagsag(rand.nextInt(8));
 							else
 								mezo.setHovastagsag(Integer.parseInt(params[2].substring(3,4)));
 						mezok.add(mezo);
