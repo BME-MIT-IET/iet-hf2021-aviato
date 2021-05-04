@@ -383,8 +383,10 @@ public final class Palya{
 		File s = new File(fName);
 		try {
 			s.createNewFile();
-			FileOutputStream fout = new FileOutputStream(s);
-			ObjectOutputStream oout = new ObjectOutputStream(fout);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		try(ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(s))){
 			ArrayList<Object> data = new ArrayList<Object>();
 			data.add(aktJatekos);
 			data.add(szereplok);
@@ -393,9 +395,8 @@ public final class Palya{
 			data.add(jatekosSzam);
 			oout.writeObject(data);			
 			
-			oout.close();
-			fout.close();
 		} catch (IOException e) {e.printStackTrace();}
+		
 		System.out.println("Jatek sikeresen mentve a '"+fName+"' fajlba!");
 		
 	}
@@ -403,19 +404,13 @@ public final class Palya{
 	public static void Load(String fName) {
 		File l = new File(fName);
 		if(l.exists()) {
-			
-			try {			
-				FileInputStream fin = new FileInputStream(l);
-				ObjectInputStream ois = new ObjectInputStream(fin);				
+			try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(l))){					
 				ArrayList<Object> data = (ArrayList<Object>) ois.readObject();
 				aktJatekos = (Szereplo) data.get(0);
 				szereplok = (ArrayList<Szereplo>) data.get(1);
 				mezok = (ArrayList<Mezo>) data.get(2);
 				alkatreszek = (int) data.get(3);	
 				jatekosSzam = (int) data.get(4);
-				
-				ois.close();
-				fin.close();
 			} catch (IOException | ClassNotFoundException e) {e.printStackTrace();}
 			
 			System.out.println("Jatek sikeresen betoltve a '"+fName+"' fajlbol!");
