@@ -31,7 +31,21 @@ public final class Palya{
 	private static int alkatreszek = 0;
 	private static boolean randomHovihar = true;
 	private static int jatekosSzam = 0;
+
+	/**
+	 * ONLY FOR DBB TESTS!
+	 */
 	private static boolean nyertek = false;
+
+	public static boolean isGameOver() {
+		return gameOver;
+	}
+
+	public static void setGameOver(boolean gameOver) {
+		Palya.gameOver = gameOver;
+	}
+
+	private static boolean gameOver = false;
 	
 	/**
 	 * Statikus osztály, nem lehet kívülről hívható konstruktor
@@ -119,6 +133,7 @@ public final class Palya{
 	 * @param nyert 
 	 */
 	public static void JatekVege(boolean nyert){
+		gameOver = true;
 		nyertek = nyert;
 		aktJatekos = null;
 		clear();
