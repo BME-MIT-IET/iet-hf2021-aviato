@@ -28,7 +28,7 @@ public abstract class Mezo implements Serializable, Nezheto{
  	 *	Mezo konstruktor ami alapból az iglu attribútumot noglura állítja,
  	 *	hiszen alapból egyik mezőn sincs iglu. 
 	 */
-	public Mezo(String id){
+	protected Mezo(String id){
 		this.id = id;
 		iglu = new Noglu();
 		szereplok = new ArrayList<Szereplo>();

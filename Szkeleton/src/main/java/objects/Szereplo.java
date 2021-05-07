@@ -67,7 +67,7 @@ public abstract class Szereplo implements Serializable, Nezheto{
      * a lépésszámát 4-re inicializálja
      * @param id
      */
-    public Szereplo(String id) {
+    protected Szereplo(String id) {
         this.id=id;
         targyak = new ArrayList<Targy>();      
         targyak.add(new Elelem());     

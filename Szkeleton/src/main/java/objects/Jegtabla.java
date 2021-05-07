@@ -18,7 +18,7 @@ public abstract class Jegtabla extends Mezo{
 	 * konstruktor a Jegtablakhoz
 	 */
 	
-	public Jegtabla(String id, Targy t) {
+	protected Jegtabla(String id, Targy t) {
 		super(id);
 		targy = t;
 	}
