@@ -649,9 +649,8 @@ public class GrafNezet {
 	}	
 	/**
 	 * Frissíti az alapruha helyzetét és megjelenését valamit tooltippel látja el a hozzá tartozó gombot
-	 * @param t
 	 */
-	public void FrissitAlapRuha(AlapRuha t) {
+	public void FrissitAlapRuha() {
 		// TODO: Kirajzoltatja magat
 		ruhaKep.setImage(null);
 	}
@@ -677,9 +676,8 @@ public class GrafNezet {
 	}
 	/**
 	 * Frissíti az iglu helyzetét és megjelenését
-	 * @param e
 	 */
-	public void FrissitIglu(Iglu e) {
+	public void FrissitIglu() {
 		ImageView igluKep = new ImageView(new Image("file:texturak/Iglu.png",epuletMeret,epuletMeret,false,false));
 		igluKep.setTranslateX(aktX-epuletMeret/2);
 		igluKep.setTranslateY(aktY-epuletMeret/2);

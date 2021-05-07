@@ -48,7 +48,7 @@ public class Iglu extends Epulet{
 	@Override
 	public void FrissitNezet(GrafNezet n) {
 
-		n.FrissitIglu(this);
+		n.FrissitIglu();
 
 	}
 }
