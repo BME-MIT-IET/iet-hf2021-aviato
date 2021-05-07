@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-
+import java.util.List;
 
 import view.Nezheto;
  
@@ -94,7 +94,7 @@ public abstract class Szereplo implements Serializable, Nezheto{
     /**
      * Visszaadja aszereplő tárgyait
      * */    
-    public ArrayList<Targy> getTargyak(){
+    public List<Targy> getTargyak(){
     	return targyak;
     }
     /**

@@ -99,7 +99,7 @@ public class Medve extends Szereplo {
 		{
 			lepesszam = 1;
 			ArrayList<Mezo> seged =new ArrayList<Mezo>();
-			seged = aktmezo.getSzomszed();
+			seged = (ArrayList<Mezo>) aktmezo.getSzomszed();
 			int s=rand.nextInt(seged.size());
 			Atlep(seged.get(s));
 			this.Vegeztem();

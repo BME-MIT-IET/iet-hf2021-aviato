@@ -45,7 +45,7 @@ public final class Palya{
 	public static Szereplo getAktJatekos(){
 		return aktJatekos;
 	}
-	public static ArrayList<Mezo> getMezok(){
+	public static List<Mezo> getMezok(){
 		return mezok;
 	}
 	public static Mezo getMezo(String id) {
