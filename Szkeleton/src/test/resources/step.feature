@@ -222,4 +222,11 @@ Feature: Testing the main features of the game including Movement, Special power
     When Eskimo uses its item
     When Bear moves to field
     Then Players should lose
+    
+  #Field tests
+  Scenario: Field has snow on
+    Given A fresh game
+    Given A fresh stable field with snow of 0
+    When Snowstorm comes
+    Then The amount of snow should be 1
 
