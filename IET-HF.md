@@ -13,5 +13,6 @@ Az elvégzendő feladatok során nagyrészt a UI-tól független üzleti logika 
 - Maven keretrendszer beüzemelése
 - Statikus kód analízis (SonarLint)
 - Egységtesztek készítése (jUnit)
+- Kódlefedettség mérése, IntelliJ segítségével
 - BDD tesztek (Cucumber)
 - Manuális tesztek
