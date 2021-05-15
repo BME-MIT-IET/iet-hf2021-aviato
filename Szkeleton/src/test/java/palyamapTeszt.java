@@ -1,5 +1,6 @@
 import main.MyApplication;
 import objects.Mezo;
+import objects.Noglu;
 import objects.Szereplo;
 import org.junit.Before;
 import org.junit.Test;
@@ -70,5 +71,22 @@ public class palyamapTeszt {
         Palya.getAktJatekos().Atlep(Palya.getMezo("mezo2"));
         Palya.getAktJatekos().SpecKepesseg(Palya.getMezo("mezo13"));
         assertFalse(Palya.getMezo("mezo13").getfelderitett());
+    }
+
+    // Teszt 30
+    @Test
+    public void eszkimoSikertelenEpites(){
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo2"));
+        Palya.getAktJatekos().SpecKepesseg(Palya.getMezo("mezo2"));
+        assertEquals(Noglu.class,Palya.getMezo("mezo2").getEpulet().getClass());
+    }
+
+    // Teszt 33
+    @Test
+    public void lukbaEses(){
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo2"));
+        assertFalse(Palya.getMezo("mezo4").getfelderitett());
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo4"));
+        assertTrue(Palya.getMezo("mezo4").getfelderitett());
     }
 }
