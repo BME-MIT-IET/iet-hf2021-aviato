@@ -3,6 +3,8 @@ package objects;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
 import view.GrafNezet;
 
 
@@ -167,7 +169,7 @@ public class InstabilJegtabla extends Jegtabla{
 		n.FrissitInstabilJegtabla(this, hoVastagsag == 0 && targy != null);
 	}
 	
-	public ArrayList<Szereplo> getAlatta() {
+	public List<Szereplo> getAlatta() {
 		return alatta;
 	}
 	/**	

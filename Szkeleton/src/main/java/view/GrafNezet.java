@@ -16,6 +16,7 @@ import main.MyApplication;
 import objects.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -328,13 +329,13 @@ public class GrafNezet {
 	
 	/**
 	 * 
-	 * @param targyak
+	 * @param list
 	 * Azokat a tárgyakat frissíti amelyeket a használható tárgyak panelján szeretnénk megjeleníteni
 	 */
-	private void TargyBarRajzol(ArrayList<Targy> targyak){		
+	private void TargyBarRajzol(List<Targy> list){		
 		targyBar.getChildren().clear();	
 		hasznalhato = true;
-		targyak.forEach(t->t.FrissitNezet(this));
+		list.forEach(t->t.FrissitNezet(this));
 		hasznalhato = false;
 	}
 	/**
@@ -407,7 +408,7 @@ public class GrafNezet {
 		Mezo akt = sz.getMezo();		
 		
 		aktMezoAllapot.setText("Aktuális mező\nHóvastagság: "+akt.gethoVastagsag()+"\nTeherbírás: "+(akt.getfelderitett()?akt.getTeherBiras():"ismeretlen"));
-		 ArrayList<Mezo> szomszedmezok = akt.getSzomszed();
+		 ArrayList<Mezo> szomszedmezok = (ArrayList<Mezo>) akt.getSzomszed();
         for(int i = 0; i < mezoinf.size(); i++)
         {
         	mezoinf.get(i).getStyleClass().remove("szomszedMezo");
@@ -517,7 +518,7 @@ public class GrafNezet {
 	public void FrissitLuk (Luk m) {
 		MezoRajzol("-fx-background-color: rgb(218,227,243)",m);
 	
-		ArrayList<Szereplo> szereplok = m.getSzereplok();
+		ArrayList<Szereplo> szereplok = (ArrayList<Szereplo>) m.getSzereplok();
 		vizben = true;
 		aktX -=this.mezoMeret/2-this.szereploMeret/2;
 		int size=szereplok.size();
@@ -536,7 +537,7 @@ public class GrafNezet {
 		
 		MezoInfo mezoinfo = MezoRajzol("-fx-background-color: rgb(31,78,121)",m);
 		
-		ArrayList<Szereplo> szereplok = m.getSzereplok();
+		ArrayList<Szereplo> szereplok = (ArrayList<Szereplo>) m.getSzereplok();
 		aktX -=this.mezoMeret/2-this.szereploMeret/2;
 		int size=szereplok.size();
 		for (int j = 0; j < size; j++)
@@ -570,8 +571,8 @@ public class GrafNezet {
 		
 		MezoInfo mezoinfo = MezoRajzol("-fx-background-color: rgb(68,114,196)",m);
 		
-		ArrayList<Szereplo> szereplok = m.getSzereplok();
-		ArrayList<Szereplo> alatta = m.getAlatta();
+		ArrayList<Szereplo> szereplok = (ArrayList<Szereplo>) m.getSzereplok();
+		ArrayList<Szereplo> alatta = (ArrayList<Szereplo>) m.getAlatta();
 		aktX -=this.mezoMeret/2-this.szereploMeret/2;
 		int sizes=szereplok.size();
 		int sizea=alatta.size();
@@ -649,9 +650,8 @@ public class GrafNezet {
 	}	
 	/**
 	 * Frissíti az alapruha helyzetét és megjelenését valamit tooltippel látja el a hozzá tartozó gombot
-	 * @param t
 	 */
-	public void FrissitAlapRuha(AlapRuha t) {
+	public void FrissitAlapRuha() {
 		// TODO: Kirajzoltatja magat
 		ruhaKep.setImage(null);
 	}
@@ -677,9 +677,8 @@ public class GrafNezet {
 	}
 	/**
 	 * Frissíti az iglu helyzetét és megjelenését
-	 * @param e
 	 */
-	public void FrissitIglu(Iglu e) {
+	public void FrissitIglu() {
 		ImageView igluKep = new ImageView(new Image("file:texturak/Iglu.png",epuletMeret,epuletMeret,false,false));
 		igluKep.setTranslateX(aktX-epuletMeret/2);
 		igluKep.setTranslateY(aktY-epuletMeret/2);
@@ -698,7 +697,7 @@ public class GrafNezet {
 	 * majd a mezők számának függvényében beállítja a pályaméretet
 	 * @param mezok
 	 */
-	public void Mezolehelyez(ArrayList<Mezo> mezok) {
+	public void Mezolehelyez(List<Mezo> mezok) {
 		// TODO: Joconak kene egy grafkirajzolast irnia	
 		
 		

@@ -45,7 +45,7 @@ public final class Palya{
 	public static Szereplo getAktJatekos(){
 		return aktJatekos;
 	}
-	public static ArrayList<Mezo> getMezok(){
+	public static List<Mezo> getMezok(){
 		return mezok;
 	}
 	public static Mezo getMezo(String id) {
@@ -94,12 +94,12 @@ public final class Palya{
 		}
 	}
 
+	private static Random rand = new Random();
 	/**
 	 * Minden szereplő köre lejárta után meghívódik ez a metódus, ami
 	 * csak bizonyos valószínűséggel generál ténylegesen hóvihart.
 	 */
 	public static void Hovihar() {
-		Random rand = new Random();
 		if(randomHovihar) {
 			for(int i = 0; i<mezok.size();i++) {
 				if (rand.nextInt(5) == 1)
@@ -228,7 +228,6 @@ public final class Palya{
 					System.out.println("Epitsd fel a palyat, adj hozza szereploket! ");
 				boolean exit = false;
 				int alkcount = 0;
-				Random r = new Random();
 				boolean randomMedve = true;
 				
 				
@@ -266,7 +265,7 @@ public final class Palya{
 							break;
 							case 'I': 
 								if(params[2].substring(2,3).equals("R"))
-									mezo = new InstabilJegtabla(params[1],targy, r.nextInt(3)+1);
+									mezo = new InstabilJegtabla(params[1],targy, rand.nextInt(3)+1);
 								else 
 									mezo = new InstabilJegtabla(params[1],targy, Integer.parseInt(params[2].substring(2,3)));
 								break;
@@ -275,7 +274,7 @@ public final class Palya{
 							default: throw new Exception("Hibas szintaktika!");							
 							}							
 							if(params[2].substring(3,4).equals("R"))
-								mezo.setHovastagsag(r.nextInt(8));
+								mezo.setHovastagsag(rand.nextInt(8));
 							else
 								mezo.setHovastagsag(Integer.parseInt(params[2].substring(3,4)));
 						mezok.add(mezo);
@@ -383,8 +382,10 @@ public final class Palya{
 		File s = new File(fName);
 		try {
 			s.createNewFile();
-			FileOutputStream fout = new FileOutputStream(s);
-			ObjectOutputStream oout = new ObjectOutputStream(fout);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		try(ObjectOutputStream oout = new ObjectOutputStream(new FileOutputStream(s))){
 			ArrayList<Object> data = new ArrayList<Object>();
 			data.add(aktJatekos);
 			data.add(szereplok);
@@ -393,9 +394,8 @@ public final class Palya{
 			data.add(jatekosSzam);
 			oout.writeObject(data);			
 			
-			oout.close();
-			fout.close();
 		} catch (IOException e) {e.printStackTrace();}
+		
 		System.out.println("Jatek sikeresen mentve a '"+fName+"' fajlba!");
 		
 	}
@@ -403,19 +403,13 @@ public final class Palya{
 	public static void Load(String fName) {
 		File l = new File(fName);
 		if(l.exists()) {
-			
-			try {			
-				FileInputStream fin = new FileInputStream(l);
-				ObjectInputStream ois = new ObjectInputStream(fin);				
+			try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(l))){					
 				ArrayList<Object> data = (ArrayList<Object>) ois.readObject();
 				aktJatekos = (Szereplo) data.get(0);
 				szereplok = (ArrayList<Szereplo>) data.get(1);
 				mezok = (ArrayList<Mezo>) data.get(2);
 				alkatreszek = (int) data.get(3);	
 				jatekosSzam = (int) data.get(4);
-				
-				ois.close();
-				fin.close();
 			} catch (IOException | ClassNotFoundException e) {e.printStackTrace();}
 			
 			System.out.println("Jatek sikeresen betoltve a '"+fName+"' fajlbol!");

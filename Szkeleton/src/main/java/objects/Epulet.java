@@ -20,7 +20,7 @@ public abstract class Epulet implements Serializable, Nezheto{
      * Absztrakt függvény, amivel az adott építmény speciális képességét lehet megadni.
      * @param szereplok Rajta álló Szereplo-ket mutatja, akikre vonatkozik a függvény hatása
      */
-    public abstract void Levon(ArrayList<Szereplo> szereplok);
+    public abstract void Levon(List<Szereplo> szereplok);
    
     /**
      * Absztrakt függvény, az adott Epulet megsemmisülését vizsgálja, hogy érvényes-e.

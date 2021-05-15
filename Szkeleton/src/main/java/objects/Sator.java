@@ -1,6 +1,6 @@
 package objects;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import view.GrafNezet;
 
@@ -37,7 +37,7 @@ public class Sator extends Epulet implements Targy {
      * @param szereplok A rajta tartózkodó Szereplo-k összessége 
      */
     @Override
-    public void Levon(ArrayList<Szereplo> szereplok) 
+    public void Levon(List<Szereplo> szereplok) 
     {
  
     } 

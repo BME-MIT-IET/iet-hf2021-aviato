@@ -86,6 +86,7 @@ public class Medve extends Szereplo {
 	@Override 
 	public void TesthoHozzaad(int novekmeny) {testho = 1; }
 
+	private Random rand = new Random();
 	/**
 	 * Ha az autoLepes értéke true, akkor kiválasztja az aktmezo szomszédos Mezo-i közül az egyiket, 
 	 * amelyre lépni szeretne és ezzel paraméterezve meghívja az Atlep metódusát.
@@ -98,8 +99,7 @@ public class Medve extends Szereplo {
 		{
 			lepesszam = 1;
 			ArrayList<Mezo> seged =new ArrayList<Mezo>();
-			seged = aktmezo.getSzomszed();
-			Random rand=new Random();
+			seged = (ArrayList<Mezo>) aktmezo.getSzomszed();
 			int s=rand.nextInt(seged.size());
 			Atlep(seged.get(s));
 			this.Vegeztem();

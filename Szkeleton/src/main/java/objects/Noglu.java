@@ -1,5 +1,5 @@
 package objects;
-import java.util.ArrayList;
+import java.util.List;
 
 import view.GrafNezet;
 
@@ -25,7 +25,7 @@ public class Noglu extends Epulet{
 	 */
 	@Override
 
-	public void Levon(ArrayList<Szereplo> szereplok)
+	public void Levon(List<Szereplo> szereplok)
 	{
 	
 		for (int i = 0; i < szereplok.size(); i++)

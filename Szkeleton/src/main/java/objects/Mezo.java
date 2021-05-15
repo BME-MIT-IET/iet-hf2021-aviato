@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+
 import view.*;
 import view.Nezheto;
 /**
@@ -26,7 +28,7 @@ public abstract class Mezo implements Serializable, Nezheto{
  	 *	Mezo konstruktor ami alapból az iglu attribútumot noglura állítja,
  	 *	hiszen alapból egyik mezőn sincs iglu. 
 	 */
-	public Mezo(String id){
+	protected Mezo(String id){
 		this.id = id;
 		iglu = new Noglu();
 		szereplok = new ArrayList<Szereplo>();
@@ -87,11 +89,11 @@ public abstract class Mezo implements Serializable, Nezheto{
 		
 	}
 	
-	public ArrayList<Szereplo> getSzereplok() {
+	public List<Szereplo> getSzereplok() {
 		return szereplok;
 	}
 	
-	public ArrayList<Mezo> getSzomszed() {
+	public List<Mezo> getSzomszed() {
 		return szomszedok;
 	}
 	/**

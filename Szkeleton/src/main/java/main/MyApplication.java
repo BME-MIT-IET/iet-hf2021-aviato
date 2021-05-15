@@ -41,7 +41,7 @@ public class MyApplication extends Application implements EventHandler<ActionEve
 	 * elindítja az alkalmazás ablakának betöltését
 	 *
 	 */
-	public static void main(String[] args) throws IOException{	
+	public static void main(String[] args){	
 		launch(args);	
 	}
 	/**

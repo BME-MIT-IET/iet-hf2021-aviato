@@ -1,6 +1,6 @@
 package objects;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import view.GrafNezet;
 
@@ -16,7 +16,7 @@ public class Iglu extends Epulet{
      *  nem csinál semmit, hiszen ha iglu van a mezőn akkor nem kell levonni
      */
     @Override
-    public void Levon(ArrayList<Szereplo> szereplok) {
+    public void Levon(List<Szereplo> szereplok) {
         // TODO Auto-generated method stub
        
        
@@ -48,7 +48,7 @@ public class Iglu extends Epulet{
 	@Override
 	public void FrissitNezet(GrafNezet n) {
 
-		n.FrissitIglu(this);
+		n.FrissitIglu();
 
 	}
 }

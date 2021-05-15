@@ -61,6 +61,6 @@ public class AlapRuha extends Ruha{
 
 	@Override
 	public void FrissitNezet(GrafNezet n) {
-		n.FrissitAlapRuha(this);
+		n.FrissitAlapRuha();
 	}
 }
