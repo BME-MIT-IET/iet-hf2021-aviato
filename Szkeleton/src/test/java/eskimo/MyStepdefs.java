@@ -268,4 +268,15 @@ public class MyStepdefs {
     public void assertNotLose() {
         Assert.assertFalse(Palya.isGameOver());
     }
+    
+    @When("Snowstorm comes")
+    public void snowstormComes() {
+        mezok.forEach(x -> x.setHovastagsag(x.gethoVastagsag()+1));
+    }
+
+
+    @Then("The amount of snow should be {int}")
+    public void theAmountOfSnowShouldBe(int arg0) {
+        Assert.assertEquals(m.gethoVastagsag(), arg0);
+    }
 }
