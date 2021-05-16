@@ -25,4 +25,5 @@ A tesztek során arra törekedtünk, hogy komplexebb, több lépésből álló, 
 Ez abban jelentkezett, hogy minden egyes teszt előtt egy adott pályát betöltöttünk és ezen végeztük a vizsgálatokat.
 Ezen felül a játékban lévő tárgyak, mezők (kötél, ásó, instabil jégtábla stb.) főbb funkcióit leteszteljük, ezzel elérve egy bizonyos kódlefedettséget.
 A tesztek sikeresen lefutottak és a funkciók helyesen működtek.
+
 ![](jUnit-Kodlefedettseg.png)
