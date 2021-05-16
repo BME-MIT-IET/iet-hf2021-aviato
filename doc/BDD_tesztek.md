@@ -24,6 +24,8 @@ Az alábbi tesztesetek készültek el:
 * A medve megtámadja az eszkimót aki igluban van
 * A medve megtámadja az eszkimót aki sátorban van
 * Hóvihar esetén a jégtáblán nő a hómennyiség
+* Hóvihar amikor az eszkimó iglus jégtáblán van
+* Hóvihar amikor az eszkimó sátras jégtáblán van
 
 ## Összegzés
 A tesztek készítése során megismerkedtünk a Cucumber 
