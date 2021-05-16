@@ -230,3 +230,22 @@ Feature: Testing the main features of the game including Movement, Special power
     When Snowstorm comes
     Then The amount of snow should be 1
 
+    #Snow tests
+  Scenario: Snowstorm of player with tent
+    Given A fresh game
+    Given A fresh Eskimo
+    Given A fresh stable Field
+    When The fields are connected
+    When We give the eskimo Tent
+    When Eskimo uses its item
+    When Snowstorm comes
+    Then Eskimo health should be 5
+
+  Scenario: Snowstorm of player with igloo
+    Given A fresh game
+    Given A fresh Eskimo
+    Given A fresh stable Field
+    When The fields are connected
+    When Eskimo builds igloo on their field
+    When Snowstorm comes
+    Then Eskimo health should be 5
