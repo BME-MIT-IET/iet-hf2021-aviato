@@ -1,3 +1,4 @@
+import objects.Aso;
 import objects.Noglu;
 import objects.Palya;
 import objects.Sator;
@@ -70,7 +71,6 @@ public class jatekvegemapTeszt {
     }
 
     // Teszt20
-
     @Test
     public void sikertelenTargyfelvetel(){
         Palya.getAktJatekos().Vegeztem();
@@ -78,5 +78,32 @@ public class jatekvegemapTeszt {
         assertEquals(1,Palya.getAktJatekos().getTargyak().size());
         Palya.getAktJatekos().Felvesz();
         assertEquals(1,Palya.getAktJatekos().getTargyak().size());
+    }
+
+    // Teszt14
+    @Test
+    public void asasAsoval() {
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo6"));
+        Palya.getAktJatekos().Felvesz();
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo3"));
+        Palya.getAktJatekos().Vegeztem();
+
+        Palya.getAktJatekos().Vegeztem();
+
+        Palya.getAktJatekos().Vegeztem();
+
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo1"));
+        Palya.getAktJatekos().Vegeztem();
+
+        assertEquals(2, Palya.getAktJatekos().getTargyak().size());
+        assertEquals(Aso.class, Palya.getAktJatekos().getTargy(1).getClass());
+        assertEquals(6, Palya.getMezo("mezo3").gethoVastagsag());
+
+        Palya.getAktJatekos().Hasznal(Palya.getAktJatekos().getTargy(1), Palya.getAktJatekos().getMezo());
+        Palya.getAktJatekos().Hasznal(Palya.getAktJatekos().getTargy(1), Palya.getAktJatekos().getMezo());
+        Palya.getAktJatekos().Hasznal(Palya.getAktJatekos().getTargy(1), Palya.getAktJatekos().getMezo());
+
+        assertEquals(1, Palya.getAktJatekos().getTargyak().size());
+        assertEquals(0, Palya.getMezo("mezo3").gethoVastagsag());
     }
 }

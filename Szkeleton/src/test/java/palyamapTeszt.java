@@ -6,8 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import objects.Palya;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
 
 import static org.junit.Assert.*;
 
@@ -88,5 +87,54 @@ public class palyamapTeszt {
         assertFalse(Palya.getMezo("mezo4").getfelderitett());
         Palya.getAktJatekos().Atlep(Palya.getMezo("mezo4"));
         assertTrue(Palya.getMezo("mezo4").getfelderitett());
+    }
+
+    // Teszt4
+    @Test
+    public void lukraLepBuvarruhaval() throws IOException {
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo2"));
+        Palya.getAktJatekos().Felvesz();
+        Palya.getAktJatekos().Hasznal(Palya.getAktJatekos().getTargy(1), Palya.getAktJatekos().getMezo());
+        Palya.getAktJatekos().Vegeztem();
+
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo2"));
+        Palya.getAktJatekos().Vegeztem();
+
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo2"));
+        Palya.getAktJatekos().Vegeztem();
+
+        assertEquals(5, Palya.getAktJatekos().getTestho());
+        assertEquals(4, Palya.getAktJatekos().getLepesszam());
+
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo4"));
+
+        assertEquals(5, Palya.getAktJatekos().getTestho());
+        assertEquals(3, Palya.getAktJatekos().getLepesszam());
+        StringWriter sw = new StringWriter();
+        BufferedWriter bw = new BufferedWriter(sw);
+        StringBuffer sb = new StringBuffer();
+        Palya.getMezo("mezo4").MezoInfo(bw);
+        bw.flush();
+        sb = sw.getBuffer();
+        assertEquals("mezo4 Luk 0 Noglu szereplo1\r\n", sb.toString());
+    }
+
+    // Teszt 5
+    @Test
+    public void instabilFelborul() {
+        // szereplo1
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo2"));
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo3"));
+        Palya.getAktJatekos().Vegeztem();
+
+        // szereplo2
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo2"));
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo3"));
+        Palya.getAktJatekos().Vegeztem();
+
+        // szereplo3
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo2"));
+        Palya.getAktJatekos().Atlep(Palya.getMezo("mezo3"));
+        assertTrue(Palya.getMezo("mezo3").getfelderitett());
     }
 }
