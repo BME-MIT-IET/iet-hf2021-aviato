@@ -39,6 +39,13 @@ public class MyStepdefs {
     public void aFreshEskimo() {
         e = new Eszkimo("1");
         Mezo eskimoStarter = new StabilJegtabla("eskimoStarterField", null);
+        eskimoStarter.setEpulet(new Noglu() {
+            @Override
+            public void Tamadas() {
+                Palya.setGameOver(true);
+            }
+        });
+        eskimoStarter.Befogad(e, null);
         e.setMezo(eskimoStarter);
         mezok.add(eskimoStarter);
     }
@@ -271,7 +278,7 @@ public class MyStepdefs {
     
     @When("Snowstorm comes")
     public void snowstormComes() {
-        mezok.forEach(x -> x.setHovastagsag(x.gethoVastagsag()+1));
+        mezok.forEach(Mezo::Hoeses);
     }
 
 
